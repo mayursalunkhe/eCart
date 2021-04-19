@@ -24,6 +24,8 @@ namespace API.Extensions
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
+            services.AddScoped<IPaymentService, PaymentService>();
+
             services.Configure<ApiBehaviorOptions>(options =>
             {
                 options.InvalidModelStateResponseFactory = actionContext =>

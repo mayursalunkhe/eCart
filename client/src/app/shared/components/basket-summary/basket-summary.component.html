@@ -1,4 +1,4 @@
-<ng-container *ngIf="items.length > 0" >
+<ng-container *ngIf="items.length > 0">
   <div class="table-responsive">
     <table class="table table-borderless">
       <thead [class.thead-light]="isBasket || isOrder" class="border-0 py-2">
@@ -35,7 +35,8 @@
                   <a
                     routerLink="/shop/{{ item.id || item.productId }}"
                     class="text-dark"
-                  >{{ item.productName }}</a>
+                    >{{ item.productName }}</a
+                  >
                 </h5>
                 <span *ngIf="item.type" class="text-muted font-weight-normal">
                   Type: {{ item.type }}
@@ -44,10 +45,13 @@
             </div>
           </th>
           <td class="align-middle">
-            <strong>{{ item.price | currency }}</strong>
+            <strong>{{ item.price | currency:'INR' }}</strong>
           </td>
           <td class="align-middle">
-            <div class="d-flex align-items-center" [class.justify-content-center]="!isBasket">
+            <div
+              class="d-flex align-items-center"
+              [class.justify-content-center]="!isBasket"
+            >
               <i
                 *ngIf="isBasket"
                 (click)="decrementItemQuantity(item)"
@@ -82,4 +86,3 @@
     </table>
   </div>
 </ng-container>
-
