@@ -12,6 +12,9 @@ namespace API.Extensions
     {
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
+            // caching service should be singleton because we want it from start of application till end
+            services.AddSingleton<IResponseCacheService, ResponseCacheService>();
+
             services.AddScoped<IProductRepository, ProductRepository>();
             
             services.AddScoped<IBasketRepository, BasketRepository>();
